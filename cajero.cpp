@@ -1,4 +1,5 @@
 #include <iostream>
+#include<stdlib.h>
 #include<conio.h>
 int opc=0, sal_inicial=500, retirar=0 ,saldo=0,ingresa=0,cont=0;
 //esta linea me sirbe para cuando escriba no me pida el std:: 
@@ -8,8 +9,10 @@ string nombre="",conta="";
 
 
 int main() {
-	do
+	//Correciones te falto del while para que terminara ala tercera
+	while(cont!=3)
 	{
+     system("cls");
 		cout << endl;
 	cout << "---------BIENBENIDO AL BANCO LEYVA-------------- \n";
 	cout<<"---------------------------------------------------\n"<< endl;
@@ -22,6 +25,9 @@ int main() {
 
 		if ((nombre == "leonel" && conta == "1234") || (nombre == "david" && conta == "5678") || (nombre == "fernando" && conta == "12345"))
 		{
+	do
+	{
+	
 	cout<<"---------------------------------------------------\n";
 		
 		//MENU PRICIPAR PARA EL CLIENTE 
@@ -67,17 +73,23 @@ int main() {
 			cout<<"INGRESE SU NUEVO NIP \n";
            break;
 		case 4:
-		return 0;break;
+		return 0;
+		break;
 
 
 		
 		}
 		
 		
-		}
+		
+	
+		
+} while (cont!=4);
+
+}
 		else
 		{
-			cont = cont + 1;
+			cont+=1;
 			cout<<"---------------------------------------------------------------------\n";
 			cout << "  LOS DATOS SON INCORRECTOS INTENTE NUEVA MENTE : \n " ;
 			cout << "  USTED TIENE TAN SOLO 3 OPORTINIDADES \n" ;
@@ -85,10 +97,8 @@ int main() {
 			cout << endl;
          cout<<"-------------------------------------------------------------------------\n";
 		}
-		
-} while (cont<3);
+	}
 	
-
 
 	return 0;
 }
