@@ -1,37 +1,142 @@
 #include <iostream>
 #include<stdlib.h>
 #include<conio.h>
-int opc = 0, sal_inicial = 0, retirar = 0, saldo = 0, ingresa = 0, cont = 0;
-int saldo1, saldo2, saldo3;
+
 //esta linea me sirbe para cuando escriba no me pida el std:: 
 using namespace std;
-string nombre = "", conta = "",resp="";
+
+//para el usuario checar sus datos 
+string nombre="",nip="";
+
+// acumuladro de saldos
+double sal_inicial = 0,sal_inicial2 = 0,sal_inicial3 = 0;
+
+// para sumar el depocito
+double sumar=0;
+// para restar 
+double retirar=0;
+//acumula todo lo ingresado en las cuentas 
+double acumulador=0,acumulador2=0,acumulador3=0;
+
+int opc = 0,saldo = 0,cont = 0;
+
+int saldo1, saldo2, saldo3,correcto=0;
 
 
 
-int main() {
-	//Correciones te falto del while para que terminara ala tercera
-	while (cont != 3)
-	{
-	
-		cout << endl;
-		
-		cout << "---------BIENBENIDO AL BANCO LEYVA-------------- \n";
-		cout << "---------------------------------------------------\n" << endl;
-	
-		cout << "INGRESE SU NOMBRE : ";
-		cin >> nombre;
+int resp=0;
 
-		cout << "INGRESE SU PIN :  ";
-		cin >> conta;
-	system("cls");
-		if ((nombre == "leonel" && conta == "1234") || (nombre == "david" && conta == "5678") || (nombre == "fernando" && conta == "12345"))
-		{
-			do
+
+
+
+double deposito(double sumar){
+
+   if(nombre =="leonel" && nip=="1234")
+   {
+       cout << endl;
+       sal_inicial=sal_inicial+sumar;
+       cout<<" dinero de su cuenta es : "<<sal_inicial;
+      
+       acumulador+=sal_inicial;
+   }
+   
+   else if(nombre =="carlos" && nip =="5678")
+   {
+      
+       sal_inicial2=sal_inicial2+sumar;
+       cout<<" dinero de su cuenta es : "<<sal_inicial2;
+        
+        acumulador2+=sal_inicial2;
+   }
+   else 
+   {
+   	
+       sal_inicial3=sal_inicial3+sumar;
+       cout<<" dinero de su cuenta es : "<<sal_inicial3;
+          
+         acumulador3+=sal_inicial3;   
+   }
+   return ((acumulador)||(acumulador2)||(acumulador3));
+}  
+   
+   
+   //para retirar dineto
+double retiro(double retirar){
+
+   if(nombre =="leonel" && nip=="1234")
+   {
+       
+       	if (retirar > sal_inicial)
+					{
+						cout << "NO TIENE DINERO SUFICIENTE";
+						cout << endl;
+
+					}
+					else
+					{
+          // se arreglo los acomuladores  para poder aumentar o retirar dinero 
+						sal_inicial  = sal_inicial - retirar;
+						cout << "SU SALDO RESTANTE ES DE : " << sal_inicial;
+						cout << endl;
+					}
+      
+       acumulador+=sal_inicial;
+   }
+   
+   else if(nombre =="carlos" && nip =="5678")
+   {
+      
+       
+       	if (retirar > sal_inicial2)
+					{
+						cout << "NO TIENE DINERO SUFICIENTE";
+						cout << endl;
+
+					}
+					else
+					{
+          // se arreglo los acomuladores  para poder aumentar o retirar dinero 
+					 sal_inicial2  = sal_inicial2 - retirar;
+						cout << "SU SALDO RESTANTE ES DE : " << sal_inicial2;
+						cout << endl;
+					}
+      
+       acumulador+=sal_inicial2;
+   }
+   else 
+   {
+   	
+       
+       	if (retirar > sal_inicial3)
+					{
+						cout << "NO TIENE DINERO SUFICIENTE";
+						
+
+					}
+					else
+					{
+          // se arreglo los acomuladores  para poder aumentar o retirar dinero 
+						sal_inicial3  = sal_inicial3 - retirar;
+						cout << "SU SALDO RESTANTE ES DE : " << sal_inicial3;
+							cout << endl;
+					}
+      
+       acumulador+=sal_inicial3;
+   }  
+    return ((acumulador)||(acumulador2)||(acumulador3));
+   }
+  
+
+
+
+
+
+// menu principal 
+
+void menu(){
+do
 			{
-				
-
-	          
+				cout << endl;
 				cout << "---------------------------------------------------\n";
 	         cout << endl;
 				//MENU PRICIPAR PARA EL CLIENTE 
@@ -48,65 +153,79 @@ int main() {
        
 				switch (opc)
 				{
-                if (nombre == "leonel" && conta == "1234")
-					saldo = sal_inicial;
-				else
-	  			{
-					(nombre == "david" && conta == "5678");
-					saldo = sal_inicial;
-				}
-				(nombre == "fernando" && conta == "12345");
-				saldo =sal_inicial;
+                
 				
 				
-				case 1:
-
+				case 1:{
 					cout << "DIGITE LA CANTIDAD A RETIRAR \n";
 					cin >> retirar;
+                      retiro(retirar);
+					
+				}
 
-					if (retirar > saldo)
-					{
-						cout << "NO TIENE DINERO SUFICIENTE";
-
-					}
-					else
-					{
-          // se arreglo los acomuladores  para poder aumentar o retirar dinero 
-						saldo = saldo - retirar;
-						cout << "SU SALDO RESTANTE ES DE : " << saldo;
-							cout << endl;
-					}
+				
 					break;
-				case 2:
+				case 2:{
+				cout << "DIJITE EL DINERO QUE DESEA INGRESAR \n";
+					cin >> sumar;
+					deposito(sumar);
+					break;
+				}
   
-					cout << "DIJITE EL DINERO QUE DESEA INGRESAR \n";
-					cin >> ingresa;
-					saldo = saldo+sal_inicial + ingresa;
-					cout << "SU SALDO ACUTUAL ES DE : " << saldo;
-					cout << endl;
-					break;
-
-				case 3:
+				case 3:{
 					cout << "--------------------------------------------\n";
 					cout << "INGRESE SU NUEVO NIP \n";
 					break;
-				case 4:
-					return 0;
+					}
+				case 4:{
+					
+			system("cls");
+			cout << "INGRESE SU NOMBRE : ";
+	        	cin >> nombre;
+	
+				cout << "INGRESE SU PIN :  ";
+	          	cin >> nip;
+	          	system("cls");
+			
+		cout << "---------------------------------------------------\n" << endl	;
+			cout << "---------BIENBENIDO AL BANCO LEYVA-------------- \n";
 					break;
-
-
-
+				}
+				
 				}
 
+			} while (cont != 5);	
+	
+}
 
 
 
 
-			} while (cont != 4);
+//principal
 
-		}
-		else
-		{
+ int main() {
+ 	
+
+	
+	while (cont != 3)
+	{
+	
+		cout << endl;
+		
+		
+				cout << "INGRESE SU NOMBRE : ";
+	        	cin >> nombre;
+	
+				cout << "INGRESE SU PIN :  ";
+	          	cin >> nip;
+	          	system("cls");
+	          	
+		cout << "---------------------------------------------------\n" << endl	;
+		cout << "---------BIENBENIDO AL BANCO LEYVA-------------- \n";
+	    if ((nombre == "leonel" && nip == "1234")||(nombre == "carlos" && nip == "5678")||(nombre=="luis" && nip=="12345"))
+	             menu();
+            	else
+		          {
 			cont += 1;
 			cout << "---------------------------------------------------------------------\n";
 			cout << "  LOS DATOS SON INCORRECTOS INTENTE NUEVA MENTE : \n ";
@@ -114,10 +233,13 @@ int main() {
 			cout << "  USTED YA LLEVA " << cont;
 			cout << endl;
 			cout << "-------------------------------------------------------------------------\n";
-		}
+	         	}
 		
-	}
+		
+			return 0;	}		
+		}
 
 
-	return 0;
-}
+
+
+
