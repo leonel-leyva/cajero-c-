@@ -17,21 +17,57 @@ double sumar=0;
 double retirar=0;
 //acumula todo lo ingresado en las cuentas 
 double acumulador=0,acumulador2=0,acumulador3=0;
-
+// declaracion de nip (contraseña)del usuario fijos para poder usar el cambio de nip
+string nip1="1234", nip2="5678", nip3="12345";
+//saldo y contadores y la opcion que escoja en el usuario 
 int opc = 0,saldo = 0,cont = 0;
 
 int saldo1, saldo2, saldo3,correcto=0;
 
-
-
+// declaracion de la respueta 
 int resp=0;
 
+// mopulo para cambiar nip 
+void nip_cambio(){
+	
+
+	// falta checar que me cambie bien el nip por que no me lo cambia correctamente 
+	
+if (nip==nip1){
+	 //cambio de nip del primero usuario 
+     	cout<<"INGRESE SU NUEVO NIP";
+		cin>>nip1;
+     	nip=nip1;
+     	cout<<"EL CAMBIO FUE CORRECTA MENTE ";
+     	//cambio de nip del segundo usuario 
+     }
+     if  (nip==nip2){
+	 //cambio de nip del primero usuario 
+     	cout<<"INGRESE SU NUEVO NIP";
+		cin>>nip2;
+     	nip=nip2;
+     	cout<<"EL CAMBIO FUE CORRECTA MENTE ";
+     }
+	 //cambio de nip del segundo usuario 
+    if  (nip==nip3){
+	 //cambio de nip del primero usuario 
+     	cout<<"INGRESE SU NUEVO NIP";
+		cin>>nip3;
+     	nip=nip3;
+     	cout<<"EL CAMBIO FUE CORRECTA MENTE ";
+	
+}	
+	
+	
+	
+}
 
 
 
+//suma dinero a la cuenta del usuario 
 double deposito(double sumar){
 
-   if(nombre =="leonel" && nip=="1234")
+   if(nombre =="leonel" && nip==nip1)
    {
        cout << endl;
        sal_inicial=sal_inicial+sumar;
@@ -40,7 +76,7 @@ double deposito(double sumar){
        acumulador+=sal_inicial;
    }
    
-   else if(nombre =="carlos" && nip =="5678")
+   else if(nombre =="carlos" && nip ==nip2)
    {
       
        sal_inicial2=sal_inicial2+sumar;
@@ -63,7 +99,7 @@ double deposito(double sumar){
    //para retirar dineto
 double retiro(double retirar){
 
-   if(nombre =="leonel" && nip=="1234")
+   if(nombre =="leonel" && nip==nip1)
    {
        
        	if (retirar > sal_inicial)
@@ -83,7 +119,7 @@ double retiro(double retirar){
        acumulador+=sal_inicial;
    }
    
-   else if(nombre =="carlos" && nip =="5678")
+   else if(nombre =="carlos" && nip ==nip2)
    {
       
        
@@ -174,7 +210,7 @@ do
   
 				case 3:{
 					cout << "--------------------------------------------\n";
-					cout << "INGRESE SU NUEVO NIP \n";
+					nip_cambio();
 					break;
 					}
 				case 4:{
@@ -222,7 +258,7 @@ do
 	          	
 		cout << "---------------------------------------------------\n" << endl	;
 		cout << "---------BIENBENIDO AL BANCO LEYVA-------------- \n";
-	    if ((nombre == "leonel" && nip == "1234")||(nombre == "carlos" && nip == "5678")||(nombre=="luis" && nip=="12345"))
+	    if ((nombre == "leonel" && nip == nip1)||(nombre == "carlos" && nip == nip2)||(nombre=="luis" && nip==nip3))
 	             menu();
             	else
 		          {
@@ -236,7 +272,7 @@ do
 	         	}
 		
 		
-			return 0;	}		
+				}		
 		}
 
 
