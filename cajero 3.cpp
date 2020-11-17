@@ -22,40 +22,89 @@ string nip1="1234", nip2="5678", nip3="12345";
 //saldo y contadores y la opcion que escoja en el usuario 
 int opc = 0,saldo = 0,cont = 0;
 
+//para las tranferencias 
+int transacion =0;
+
 int saldo1, saldo2, saldo3,correcto=0;
 
 // declaracion de la respueta 
 int resp=0;
 
+
+
+void transa(){
+	
+	 if(nip==nip1)
+   {
+   	
+     cout<<"INGRESE CANTIDAD A TRANFERIR: \n";
+     cin>>transacion;
+   
+      
+      if (transacion>sal_inicial){
+      	
+      	cout<<"NO TIENES SUFICIENTE DINERO";
+      	
+	  }
+      
+      else 
+      {
+      	cout<<"INGRESE NIP DECIADO A TRANFERIR: /n";
+      	cin>>nip;
+      	
+      if(nip==nip2){
+      	
+      sal_inicial2= sal_inicial2+transacion;
+      	 cout<< "SU TRANSACCION FUE DE \n "<<transacion; 
+	  }
+      	if (nip==nip3){
+      		sal_inicial3= sal_inicial3+transacion;
+      	 cout<< "SU TRANSACCION FUE DE \n "<<transacion;
+		  }
+	  }
+	  
+   }
+	
+	
+}
+
 // mopulo para cambiar nip 
+
 void nip_cambio(){
 	
 
 	// falta checar que me cambie bien el nip por que no me lo cambia correctamente 
-	
-if (nip==nip1){
+	 cout<<endl;
+  	  cout<<"INGRESE SU ANTIGUO NIP: \n";
+  	  cin>>nip;
+  	  cout<<endl;
+ 	system("cls");
+  	 
+if ( nip==nip1){
 	 //cambio de nip del primero usuario 
-     	cout<<"INGRESE SU NUEVO NIP";
+     	cout<<"USUARIO  "<< nombre <<"   INGRESE SU NUEVO NIP \n";
 		cin>>nip1;
      	nip=nip1;
-     	cout<<"EL CAMBIO FUE CORRECTA MENTE ";
+     	
+     	cout<<"EL CAMBIO  DE SU NIP FUE CORRECTA MENTE ";
+     
      	//cambio de nip del segundo usuario 
      }
      if  (nip==nip2){
 	 //cambio de nip del primero usuario 
-     	cout<<"INGRESE SU NUEVO NIP";
+     	cout<<"INGRESE SU NUEVO NIP \n";
 		cin>>nip2;
      	nip=nip2;
-     	cout<<"EL CAMBIO FUE CORRECTA MENTE ";
+     	cout<<"EL CAMBIO  DE SU NIP FUE CORRECTA MENTE ";
      }
 	 //cambio de nip del segundo usuario 
     if  (nip==nip3){
 	 //cambio de nip del primero usuario 
-     	cout<<"INGRESE SU NUEVO NIP";
+     	cout<<"INGRESE SU NUEVO NIP \n";
 		cin>>nip3;
      	nip=nip3;
-     	cout<<"EL CAMBIO FUE CORRECTA MENTE ";
-	
+     	cout<<"EL CAMBIO  DE SU NIP FUE CORRECTA MENTE ";
+
 }	
 	
 	
@@ -163,80 +212,6 @@ double retiro(double retirar){
    }
   
 
-
-
-
-
-// menu principal 
-
-void menu(){
-do
-			{
-				cout << endl;
-				cout << "---------------------------------------------------\n";
-	         cout << endl;
-				//MENU PRICIPAR PARA EL CLIENTE 
-				
-				cout << "1-DESEA HACER UN RETIRO \n";
-				cout << "2-DESEA INGRESAR DINERO \n";
-				cout << "3-DESEA CAMBIAR SU PIN \n";
-				cout << "4-SALIR \n" << endl;
-				cout << "--------------------------------------------\n";
-				cout << "POR FAVOR PONGA LA OPCION DECIEADA  \n";
-				cin >> opc;
-				// este codigo lo puse para limpiar la pantalla cada que eliges algo y no se aumente los archivos 
-       system("cls");
-       
-				switch (opc)
-				{
-                
-				
-				
-				case 1:{
-					cout << "DIGITE LA CANTIDAD A RETIRAR \n";
-					cin >> retirar;
-                      retiro(retirar);
-					
-				}
-
-				
-					break;
-				case 2:{
-				cout << "DIJITE EL DINERO QUE DESEA INGRESAR \n";
-					cin >> sumar;
-					deposito(sumar);
-					break;
-				}
-  
-				case 3:{
-					cout << "--------------------------------------------\n";
-					nip_cambio();
-					break;
-					}
-				case 4:{
-					
-			system("cls");
-			cout << "INGRESE SU NOMBRE : ";
-	        	cin >> nombre;
-	
-				cout << "INGRESE SU PIN :  ";
-	          	cin >> nip;
-	          	system("cls");
-			
-		cout << "---------------------------------------------------\n" << endl	;
-			cout << "---------BIENBENIDO AL BANCO LEYVA-------------- \n";
-					break;
-				}
-				
-				}
-
-			} while (cont != 5);	
-	
-}
-
-
-
-
 //principal
 
  int main() {
@@ -248,6 +223,10 @@ do
 	
 		cout << endl;
 		
+		cout << "---------------------------------------------------\n" ;
+		cout << "---------BIENBENIDO AL BANCO LEYVA----------------- \n";
+		cout << "---------------------------------------------------\n";
+			cout << endl;
 		
 				cout << "INGRESE SU NOMBRE : ";
 	        	cin >> nombre;
@@ -256,21 +235,78 @@ do
 	          	cin >> nip;
 	          	system("cls");
 	          	
-		cout << "---------------------------------------------------\n" << endl	;
-		cout << "---------BIENBENIDO AL BANCO LEYVA-------------- \n";
-	    if ((nombre == "leonel" && nip == nip1)||(nombre == "carlos" && nip == nip2)||(nombre=="luis" && nip==nip3))
-	             menu();
-            	else
-		          {
-			cont += 1;
+		cout << "---------------------------------------------------\n"	;
+		cout << "---------INGRESE LA OCION DESIADA ----------------- \n";
+		cout << "---------------------------------------------------\n";
+		//valida que el nup y el nombre sean correctos al usuario 
+		
+	    if ((nombre == "leonel" && nip == nip1)||(nombre == "carlos" && nip == nip2)||(nombre=="luis" && nip==nip3)){
+	          
+	          
+	          do
+			{
+			
+			
+	         cout << endl;
+	         
+				//MENU PRICIPAR PARA EL CLIENTE 
+				
+				cout << "1-DEPOCITAR EN CUENTA \n";
+				cout << "2-HACER UN RETIRO \n";
+				cout << "3-DESEA CAMBIAR SU PIN \n";
+				cout << "4-TRANSACCION \n";
+				cout << "5-SALIR \n" << endl;
+				cout << "--------------------------------------------\n";
+				cout << "POR FAVOR PONGA LA OPCION DECIEADA  \n";
+				cin >> opc;
+				// este codigo lo puse para limpiar la pantalla cada que eliges algo y no se aumente los archivos 
+       system("cls");
+       
+				switch (opc){
+				
+				
+					
+				case 1:
+					cout << "DIJITE EL DINERO QUE DESEA INGRESAR \n";
+					cin >> sumar;
+					deposito(sumar);
+					break;
+					
+				case 2:
+					cout << "DIGITE LA CANTIDAD A RETIRAR \n";
+					cin >> retirar;
+                      retiro(retirar);
+				
+					break;
+					
+				case 3:
+					cout << "--------------------------------------------\n";
+					nip_cambio();
+					break;
+					
+				case 4:
+					cout << "--------------------------------------------\n";
+				 transa();
+					break;	
+					
+				case 5:
+					break;
+					break;	
+					
+				}
+
+			} while (opc != 5);
+	         	
+			}
+			    else {
+		      	cont += 1;
 			cout << "---------------------------------------------------------------------\n";
 			cout << "  LOS DATOS SON INCORRECTOS INTENTE NUEVA MENTE : \n ";
 			cout << "  USTED TIENE TAN SOLO 3 OPORTINIDADES \n";
 			cout << "  USTED YA LLEVA " << cont;
 			cout << endl;
 			cout << "-------------------------------------------------------------------------\n";
-	         	}
-		
+			  }  
 		
 				}		
 		}
