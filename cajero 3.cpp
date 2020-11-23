@@ -1,5 +1,7 @@
 #include <iostream>
+//LIBRERIA NOS SIRVE PARA using namespace std; Y YA NO LO ESCRIBES MAS 
 #include<stdlib.h>
+//LIBRERIA NOS SIGRVE PARA LA OPCION 	system("cls"); QUE ES PARA LIMPIAR PANTALLA
 #include<conio.h>
 
 //esta linea me sirbe para cuando escriba no me pida el std:: 
@@ -30,10 +32,26 @@ int saldo1, saldo2, saldo3,correcto=0;
 // declaracion de la respueta 
 int resp=0;
 
-
+//checar  por que no me da el chequeo de saldo todal 
+void chequeo(){
+	
+	if (nip==nip1)
+	cout<<"EL SALDO ACTUAL ES DE : $ "; 
+	cout<<sal_inicial;
+	
+	if (nip==nip2)
+	cout<<"EL SALDO ACTUAL ES DE : $ "; 
+	cout<<sal_inicial;
+		
+	if (nip==nip3)
+	cout<<"EL SALDO ACTUAL ES DE : $ "; 
+	cout<<sal_inicial;
+	
+	
+}
 
 void transa(){
-	
+	//para tranferir en cuenta 1  a  cuenta 2 y 3 
 	 if(nip==nip1)
    {
    	
@@ -55,12 +73,84 @@ void transa(){
       if(nip==nip2){
       	
       sal_inicial2= sal_inicial2+transacion;
-      	 cout<< "SU TRANSACCION FUE DE \n "<<transacion; 
+         
+      	 cout<< "SU TRANSACCION FUE DE   :  "<<transacion; 
 	  }
       	if (nip==nip3){
       		sal_inicial3= sal_inicial3+transacion;
-      	 cout<< "SU TRANSACCION FUE DE \n "<<transacion;
+      	 cout<< "SU TRANSACCION FUE DE  :  "<<transacion;
+      	 
 		  }
+		  
+		 
+	  }
+	  //para tranferir en cuenta 2  a  cuenta 1 y 3 
+   }
+  	 if(nip==nip2)
+   {
+   	
+     cout<<"INGRESE CANTIDAD A TRANFERIR: \n";
+     cin>>transacion;
+   
+      
+      if (transacion>sal_inicial){
+      	
+      	cout<<"NO TIENES SUFICIENTE DINERO";
+      	
+	  }
+      
+      else 
+      {
+      	cout<<"INGRESE NIP DECIADO A TRANFERIR: /n";
+      	cin>>nip;
+      	
+      if(nip==nip1){
+      	
+      sal_inicial2= sal_inicial2+transacion;
+         
+      	 cout<< "SU TRANSACCION FUE DE   :  "<<transacion; 
+	  }
+      	if (nip==nip3){
+      		sal_inicial3= sal_inicial3+transacion;
+      	 cout<< "SU TRANSACCION FUE DE :    "<<transacion;
+      	 
+		  }
+		  
+		 
+	  }
+	  //para tranferir en cuenta 3  a  cuenta 1 y 2 
+   } 
+   	 if(nip==nip3)
+   {
+   	
+     cout<<"INGRESE CANTIDAD A TRANFERIR: \n";
+     cin>>transacion;
+   
+      
+      if (transacion>sal_inicial){
+      	
+      	cout<<"NO TIENES SUFICIENTE DINERO";
+      	
+	  }
+      
+      else 
+      {
+      	cout<<"INGRESE NIP DECIADO A TRANFERIR: /n";
+      	cin>>nip;
+      	
+      if(nip==nip1){
+      	
+      sal_inicial2= sal_inicial2+transacion;
+         
+      	 cout<< "SU TRANSACCION FUE DE  :   "<<transacion; 
+	  }
+      	if (nip==nip2){
+      		sal_inicial3= sal_inicial3+transacion;
+      	 cout<< "SU TRANSACCION FUE DE  :   "<<transacion;
+      	 
+		  }
+		  
+		 
 	  }
 	  
    }
@@ -255,7 +345,8 @@ double retiro(double retirar){
 				cout << "2-HACER UN RETIRO \n";
 				cout << "3-DESEA CAMBIAR SU PIN \n";
 				cout << "4-TRANSACCION \n";
-				cout << "5-SALIR \n" << endl;
+				cout << "5-CHEQUEO DE SALDO" << endl;
+				cout << "6-SALIR \n" << endl;
 				cout << "--------------------------------------------\n";
 				cout << "POR FAVOR PONGA LA OPCION DECIEADA  \n";
 				cin >> opc;
@@ -282,20 +373,31 @@ double retiro(double retirar){
 				case 3:
 					cout << "--------------------------------------------\n";
 					nip_cambio();
+					cout << endl;
+					cout << "--------------------------------------------\n";
 					break;
 					
 				case 4:
 					cout << "--------------------------------------------\n";
 				 transa();
+				 cout << endl;
+				cout << "--------------------------------------------\n";
 					break;	
 					
 				case 5:
-					break;
+					cout << "--------------------------------------------\n";
+					chequeo();
+					cout << endl;
+					cout << "--------------------------------------------\n";
 					break;	
+					
+					case 6:
+					break;
+					break;
 					
 				}
 
-			} while (opc != 5);
+			} while (opc != 6);
 	         	
 			}
 			    else {
